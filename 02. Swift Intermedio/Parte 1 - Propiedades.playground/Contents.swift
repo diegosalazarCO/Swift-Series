@@ -16,10 +16,11 @@ enum WeatherCondition {
 }
 
 struct Weather {
+    let absoluteZero = -273.15
   var celsius: Double {
     didSet {
-      if celsius < -273.15 {
-        celsius = -273.15
+      if celsius < absoluteZero {
+        celsius = absoluteZero
       }
     }
   }
@@ -42,11 +43,17 @@ Remembor, inside a setter, you can access the passed-in value as `newValue`. You
       return celsius * 9/5 + 32
     }
     set {
-        celsius = round( (newValue - 32) * 5/9 * 100)/100
+        if newValue < -459.67 {
+            celsius = absoluteZero
+        }
+        celsius = round((newValue - 32) * 5/9 * 100) / 100
+    }
+  }
+    
+    var kelvin: Double {
+        return celsius - absoluteZero
     }
     
-  }
-
 /*:
 Additional exercises:
 
@@ -54,10 +61,9 @@ Additional exercises:
 
 * Try adding additional computed properties for Kelvin and Rankine; your nerdy science friends will love you! Check out the conversion formulas here: https://en.wikipedia.org/wiki/Conversion_of_units_of_temperature
 */
-
-  var temperatureString: String {
-    return "The temperature is \(celsius)°C or \(fahrenheit)°F"
-  }
+    var temperatureString: String {
+        return "The temperature is \(celsius)°C or \(fahrenheit)°F"
+    }
 }
 
 var currentWeather = Weather(celsius: 22, weatherCondition: .Sunny, specialAdvisory: nil)
