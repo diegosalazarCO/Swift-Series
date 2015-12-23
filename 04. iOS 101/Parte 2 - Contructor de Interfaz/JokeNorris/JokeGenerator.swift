@@ -12,6 +12,7 @@ class JokeGenerator {
     
     var jokes : [String: [String]]
     
+    var type = "Chuck"
     init() {
         jokes = [String:[String]]()
         
@@ -49,7 +50,7 @@ class JokeGenerator {
         
         var randomJoke = ""
         if let myJokes = jokes[type] {
-            let randomIndex = Int(arc4random()) % myJokes.count
+            let randomIndex = Int(arc4random_uniform(UInt32(myJokes.count)))
             randomJoke = myJokes[randomIndex]
         } else {
             randomJoke = "Choose one of the following: Chuck, Knock, or Silly"

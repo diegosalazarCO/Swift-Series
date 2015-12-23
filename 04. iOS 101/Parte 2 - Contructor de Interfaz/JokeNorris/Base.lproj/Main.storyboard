@@ -7,7 +7,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ChuckNorris" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JokeNorris" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -43,8 +43,11 @@
                                     <segment title="Billy"/>
                                 </segments>
                                 <color key="tintColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeSegmentJoke:" destination="BYZ-38-t0r" eventType="valueChanged" id="Cat-yE-vFN"/>
+                                </connections>
                             </segmentedControl>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChuckNorris.png" translatesAutoresizingMaskIntoConstraints="NO" id="rfJ-na-dAJ">
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChuckNorris.png" translatesAutoresizingMaskIntoConstraints="NO" id="rfJ-na-dAJ">
                                 <rect key="frame" x="10" y="57" width="300" height="280"/>
                                 <animations/>
                             </imageView>
@@ -54,7 +57,9 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="jokeButton" destination="fc6-DG-aEJ" id="NfO-sa-wpi"/>
                         <outlet property="jokeLabel" destination="bqm-Dg-ZAB" id="60u-Df-duE"/>
+                        <outlet property="jokeMainImage" destination="rfJ-na-dAJ" id="0OS-4P-oTL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
