@@ -81,7 +81,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(people[row])
         tipCalc.people = Int(people[row])!
         calcTotalPerPerson()
     }
